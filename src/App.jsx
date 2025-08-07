@@ -1,18 +1,14 @@
 
 import './App.css'
-import FocusInput from './components/FocusInput'
-import Counter from './components/Counter'
-import InputTracker from './components/InputTracker'
-
+import LifeCycle from './components/LifeCycle'
 function App() {
 
 
 
   return (
     <div>
-      <InputTracker/>
-      <Counter/>
-      <FocusInput/>
+      <LifeCycle/>
+
     </div>
   )
 }
