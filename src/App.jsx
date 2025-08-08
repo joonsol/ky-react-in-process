@@ -1,14 +1,14 @@
 
 import './App.css'
-import LifeCycle from './components/LifeCycle'
+import SquareCalc from './components/SquareCalc'
+import SortableList from './components/SortableList'
 function App() {
-
 
 
   return (
     <div>
-      <LifeCycle/>
-
+      <SortableList/>
+      {/* <SquareCalc/> */}
     </div>
   )
 }
