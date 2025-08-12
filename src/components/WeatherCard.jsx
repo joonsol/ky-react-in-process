@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import './WeatherCard.css'
-const WeatherCard = () => {
+const WeatherCard = ({ weather }) => {
+
+    if (!weather) return null
+
+
+    const { name, main, weather: weatherInfo } = weather
+    const { temp, humidity } = main || {}
+    const { description, icon } = (weatherInfo && weatherInfo[0]) || {}
+
+    console.log(name, temp, humidity, description, icon)
+
+    const iconUrl = useMemo(
+        () => (icon ? `https://openweathermap.org/img/wn/${icon}@2x.png` : ""
+        ), [icon]
+    )
+
+
     return (
         <div className='card'>
-            <h2>서울</h2>
+            <h2>{name}</h2>
             <div className="img-wrap">
-                <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="icon" />
+                {iconUrl && <img src={iconUrl} alt={description} />}
 
             </div>
-            <p>구름 조금</p>
-            <p>🌡️ 28℃</p>
-            <p>💧 69%</p>
+            <p>{description}</p>
+            <p>🌡️ {Math.round(temp)}℃</p>
+            <p>💧 {humidity}%</p>
 
         </div>
     )
