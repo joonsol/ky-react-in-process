@@ -7,6 +7,7 @@ import Board from './pages/Board'
 import Home from './pages/Home'
 import Notfound from './pages/Notfound'
 import BoardDetail from './pages/BoardDetail'
+import Footer from './components/Footer'
 function App() {
 
   return (
@@ -19,7 +20,7 @@ function App() {
         <Route path='/board/:id' element={<BoardDetail/>}/>
         <Route path='*' element={<Notfound/>}/>
       </Routes>
-
+    <Footer/>
     </div>
   )
 }
