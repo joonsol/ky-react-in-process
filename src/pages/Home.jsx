@@ -1,4 +1,5 @@
 import React from 'react'
+import HomeHero from './home/HomeHero'
 
 const Home = () => {
   return (
@@ -6,6 +7,7 @@ const Home = () => {
       <h1>
         Home
       </h1>
+      <HomeHero/>
     </section>
   )
 }
