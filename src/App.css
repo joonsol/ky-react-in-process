@@ -7,34 +7,44 @@
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 
-body {
-    background-color: #f7f7f7;
-    padding: 0 20px;
+.app {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.app {
-    max-width: 600px;
-    margin: 40px auto;
-    background-color: #fff;
+.container {
+    width: 600px;
+    background-color: #ffffff2f;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.118);
+    box-shadow: inset 4px 4px 10px #bcbcbc, inset -4px -4px 10px #ffffff;
     border-radius: 20px;
+    transition: box-shadow 3s;
+      border: 2px solid rgb(206, 206, 206);
+}
+.container:hover 
+{
+     box-shadow: inset 2px 2px 5px #bcbcbc, inset -2px -2px 5px #ffffff27, 2px 2px 5px #bcbcbc, -2px -2px 5px #ffffff;
 }
 h1 {
     font-size: 28px;
     margin-bottom: 16px;
 }
+
 .input-wrap {
     display: flex;
     gap: 10px;
 }
-.input-wrap input{
+
+.input-wrap input {
     flex: 1;
     border: 1px solid #ddd;
     padding: 10px 12px;
     border-radius: 5px;
 }
-.input-wrap button{
+
+.input-wrap button {
     border-radius: 5px;
     border: none;
     padding: 10px 14px;
@@ -42,7 +52,8 @@ h1 {
     color: #fff;
     font-size: 16px;
 }
-.input-wrap button[disabled]{
+
+.input-wrap button[disabled] {
     opacity: .6;
     cursor: not-allowed;
 }

@@ -1,9 +1,10 @@
 
 import './App.css'
 import WeatherCard from './components/WeatherCard'
-import { useState,useRef,useEffect } from 'react'
+import { useState,useRef,useEffect,useMemo } from 'react'
 import { fetchCoordinates } from './api/geo'
 import { fetchWeatherByCoords } from './api/weather'
+import { getColorByWeatherId } from './data/bgColor'
 function App() {
 
   const [city, setCity]=useState('seoul')
@@ -15,6 +16,13 @@ function App() {
   useEffect(()=>{
     inputRef.current.focus()
   },[])
+
+
+const bg =useMemo(()=>{
+  const weatherId=weather?.weather?.[0].id
+  return getColorByWeatherId(weatherId?? 0)
+},[weather])
+
 
 
   const handleSearch=async()=>{
@@ -50,7 +58,9 @@ function App() {
   }
 
   return (
-    <div className='app'>
+    <div className='app' style={{backgroundImage:`url(${bg})`}}>
+      <div className="container">
+
       <h1>***의 날씨앱</h1>
       <div className="input-wrap">
         <input 
@@ -67,6 +77,7 @@ function App() {
       {err && <p className='error'>{err}</p>}
       {loading && <p className='info'>불러오는중...</p>}
       <WeatherCard weather={weather}/>
+      </div>
     </div>
   )
 }
